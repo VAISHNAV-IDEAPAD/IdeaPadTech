@@ -455,7 +455,25 @@
 
         content.innerHTML = `
           <div class="space-y-4">
-            <div class="text-xs text-slate-400">Software & Utilities Collection:</div>
+            <div class="text-xs text-slate-400">Software Collection Folders & Utilities:</div>
+            
+            <!-- Folder: office 2024 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pb-2">
+              <div onclick="navDl('office_2024')" class="group cursor-pointer p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/60 hover:bg-brand-card transition-all flex items-center justify-between shadow-sm hover:shadow-lg hover:shadow-brand-cyan/10">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform text-orange-400">
+                    📁
+                  </div>
+                  <div>
+                    <div class="font-bold text-white text-base group-hover:text-brand-cyan transition-colors">office 2024</div>
+                    <div class="text-xs text-slate-400 mt-0.5">Folder • Installable Office 2024 App</div>
+                  </div>
+                </div>
+                <svg class="w-5 h-5 text-slate-500 group-hover:text-brand-cyan group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+
+            <div class="text-xs text-slate-400 pt-2 border-t border-brand-border/40">Included Applications & Utilities:</div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               
               <!-- Item 1: OmniBoot OTG APK -->
@@ -589,6 +607,164 @@
         return;
       }
 
+      // 1.6 OFFICE 2024 LEVEL
+      if (dlPath === 'office_2024') {
+        pathSegs.innerHTML = `
+          <span class="text-slate-600">/</span>
+          <button onclick="navDl('software_collection')" class="text-slate-400 hover:text-white flex items-center gap-1">📁 software collection</button>
+          <span class="text-slate-600">/</span>
+          <span class="text-brand-cyan font-bold flex items-center gap-1">📁 office 2024</span>
+        `;
+        backContainer.innerHTML = `
+          <button onclick="navDl('software_collection')" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-semibold text-slate-300 hover:text-white border border-brand-border flex items-center gap-1.5 transition-all">
+            ← Back to software collection
+          </button>
+        `;
+
+        content.innerHTML = `
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span>Office 2024 Installable Packages & Binaries:</span>
+              <span class="text-brand-green font-mono">PerpetualVL2024 Edition</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              <!-- Item 1: Office-2024-Installer.exe -->
+              <div class="p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/50 transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="flex items-start justify-between gap-3 mb-3">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center text-black font-extrabold text-lg shadow-md">
+                        ⚡
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-white text-sm group-hover:text-brand-cyan transition-colors">Office 2024 One-Click Installer</h4>
+                        <span class="text-[11px] text-slate-400">Native Windows GUI Application</span>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30">STANDALONE APP</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    Custom compiled IdeaPadTech installer with auto-elevation, live progress tracking, and component verification.
+                  </p>
+                  <div class="bg-black/40 p-2 rounded-lg border border-white/5 font-mono text-[11px] text-slate-400 flex items-center justify-between">
+                    <span>Office-2024-Installer.exe</span>
+                    <span class="text-brand-cyan font-bold">11.7 KB</span>
+                  </div>
+                </div>
+                <div class="pt-4 mt-3 border-t border-brand-border/40 flex items-center justify-between">
+                  <span class="text-[11px] text-slate-400">WinForms • 64-bit</span>
+                  <a href="downloads/software%20collection/office%202024/Office-2024-Installer.exe" download="Office-2024-Installer.exe" class="px-4 py-2 rounded-xl bg-brand-cyan hover:bg-cyan-300 text-black font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 shadow-md shadow-brand-cyan/20">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    Download App (.exe)
+                  </a>
+                </div>
+              </div>
+
+              <!-- Item 2: Complete Package ZIP -->
+              <div class="p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/50 transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="flex items-start justify-between gap-3 mb-3">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-lg text-purple-400">
+                        📦
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-white text-sm group-hover:text-brand-cyan transition-colors">Office 2024 Full Deployment Suite</h4>
+                        <span class="text-[11px] text-slate-400">Complete Archive with setup.exe + Config.xml</span>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-green/15 text-brand-green border border-brand-green/30">RECOMMENDED</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    All-in-one ZIP package including official Microsoft setup.exe, Config.xml, Install.cmd, and GUI installer.
+                  </p>
+                  <div class="bg-black/40 p-2 rounded-lg border border-white/5 font-mono text-[11px] text-slate-400 flex items-center justify-between">
+                    <span>Office-2024-Package.zip</span>
+                    <span class="text-brand-green font-bold">3.27 MB</span>
+                  </div>
+                </div>
+                <div class="pt-4 mt-3 border-t border-brand-border/40 flex items-center justify-between">
+                  <span class="text-[11px] text-slate-400">Extract & Run Install.cmd</span>
+                  <a href="downloads/software%20collection/office%202024/Office-2024-Package.zip" download="Office-2024-Package.zip" class="px-4 py-2 rounded-xl bg-brand-green hover:bg-emerald-400 text-black font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 shadow-md shadow-brand-green/20">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    Download Suite (.zip)
+                  </a>
+                </div>
+              </div>
+
+              <!-- Item 3: setup.exe (Microsoft ODT) -->
+              <div class="p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/50 transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="flex items-start justify-between gap-3 mb-3">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-lg">
+                        ⚙️
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-white text-sm group-hover:text-brand-cyan transition-colors">Microsoft Office Deployment Tool</h4>
+                        <span class="text-[11px] text-slate-400">Official setup.exe v16.0 (x64)</span>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/5 text-slate-300 border border-white/10">ORIGINAL ODT</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    Original Microsoft Office Deployment binary extracted directly from your PC Install-Office folder.
+                  </p>
+                  <div class="bg-black/40 p-2 rounded-lg border border-white/5 font-mono text-[11px] text-slate-400 flex items-center justify-between">
+                    <span>setup.exe</span>
+                    <span class="text-slate-300 font-bold">7.17 MB</span>
+                  </div>
+                </div>
+                <div class="pt-4 mt-3 border-t border-brand-border/40 flex items-center justify-between">
+                  <span class="text-[11px] text-slate-400">Digital Signature Verified</span>
+                  <a href="downloads/software%20collection/office%202024/setup.exe" download="setup.exe" class="px-4 py-2 rounded-xl bg-brand-surface hover:bg-brand-card border border-brand-border text-white font-semibold text-xs flex items-center gap-1.5 transition-all">
+                    Download setup.exe
+                  </a>
+                </div>
+              </div>
+
+              <!-- Item 4: Config.xml & Install.cmd -->
+              <div class="p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/50 transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="flex items-start justify-between gap-3 mb-3">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-lg">
+                        📄
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-white text-sm group-hover:text-brand-cyan transition-colors">Config.xml & Install Scripts</h4>
+                        <span class="text-[11px] text-slate-400">Volume License Configuration</span>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/5 text-slate-300 border border-white/10">SCRIPTS</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    Configured for PerpetualVL2024 channel. Includes administrative elevation wrapper script (Install.cmd).
+                  </p>
+                  <div class="bg-black/40 p-2 rounded-lg border border-white/5 font-mono text-[11px] text-slate-400 flex items-center justify-between">
+                    <span>Config.xml + Install.cmd</span>
+                    <span class="text-slate-300 font-bold">2.0 KB</span>
+                  </div>
+                </div>
+                <div class="pt-4 mt-3 border-t border-brand-border/40 flex items-center justify-between">
+                  <span class="text-[11px] text-slate-400">Ready to configure</span>
+                  <div class="flex items-center gap-2">
+                    <a href="downloads/software%20collection/office%202024/Config.xml" download="Config.xml" class="px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-card border border-brand-border text-slate-300 hover:text-white text-xs font-semibold transition-all">
+                      Config.xml
+                    </a>
+                    <a href="downloads/software%20collection/office%202024/Install.cmd" download="Install.cmd" class="px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-card border border-brand-border text-slate-300 hover:text-white text-xs font-semibold transition-all">
+                      Install.cmd
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+        return;
       // 2. NEWSPAPERS LEVEL: Show subfolder "mathrubhumi"
       if (dlPath === 'newspapers') {
         pathSegs.innerHTML = `
