@@ -5,8 +5,8 @@
   "homepage": "https://ideapadtech.vercel.app",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve -l 3000 .",
-    "deploy": "npx vercel --prod"
+    "build": "echo 'Static build complete'",
+    "start": "npx serve -l 3000 ."
   },
   "keywords": [
     "ideapadtech",
