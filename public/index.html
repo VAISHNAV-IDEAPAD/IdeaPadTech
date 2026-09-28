@@ -383,21 +383,6 @@
     // ==========================================
     // DOWNLOADS FOLDER EXPLORER
     // ==========================================
-    const EDITIONS = [
-      { id: 'Kozhikode', name: 'Kozhikode', malayalam: 'കോഴിക്കോട്', badge: 'Headquarters', desc: 'Main Edition • Malabar Bureau' },
-      { id: 'Thiruvananthapuram', name: 'Thiruvananthapuram', malayalam: 'തിരുവനന്തപുരം', badge: 'State Capital', desc: 'Government & Secretariat Bureau' },
-      { id: 'Kochi', name: 'Kochi (Ernakulam)', malayalam: 'കൊച്ചി', badge: 'Commercial', desc: 'Commercial & Financial Capital' },
-      { id: 'Thrissur', name: 'Thrissur', malayalam: 'തൃശ്ശൂർ', badge: 'Cultural', desc: 'Cultural Capital Edition' },
-      { id: 'Kannur', name: 'Kannur', malayalam: 'കണ്ണൂർ', badge: 'North Malabar', desc: 'North Malabar Regional Bureau' },
-      { id: 'Kottayam', name: 'Kottayam', malayalam: 'കോട്ടയം', badge: 'Central', desc: 'Central Travancore Edition' },
-      { id: 'Malappuram', name: 'Malappuram', malayalam: 'മലപ്പുറം', badge: 'District', desc: 'District Regional Bureau' },
-      { id: 'Kollam', name: 'Kollam', malayalam: 'കൊല്ലം', badge: 'Port', desc: 'South Coast Regional Edition' },
-      { id: 'Palakkad', name: 'Palakkad', malayalam: 'പാലക്കാട്', badge: 'Agri/Ind', desc: 'Agricultural & Industrial Hub' },
-      { id: 'Alappuzha', name: 'Alappuzha', malayalam: 'ആലപ്പുഴ', badge: 'Coastal', desc: 'Coastal Belt Regional Edition' },
-      { id: 'NewDelhi', name: 'New Delhi (National)', malayalam: 'ന്യൂഡൽഹി', badge: 'National', desc: 'National Edition (English/Malayalam)' },
-      { id: 'Gulf', name: 'Gulf Edition (Dubai/ME)', malayalam: 'ഗൾഫ് എഡിഷൻ', badge: 'International', desc: 'Middle East & UAE Distribution' }
-    ];
-
     const DAYS = [];
     const weekdayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     for (let d = 1; d <= 27; d++) {
@@ -840,39 +825,6 @@
           </button>
         `;
 
-        const editionsHtml = EDITIONS.map(ed => `
-          <div class="p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/50 hover:bg-brand-card transition-all flex flex-col justify-between group">
-            <div>
-              <div class="flex items-start justify-between gap-2 mb-3">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan/20 to-blue-500/20 border border-brand-cyan/30 flex items-center justify-center text-lg text-brand-cyan group-hover:scale-105 transition-transform">
-                    📰
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-white text-sm group-hover:text-brand-cyan transition-colors">${ed.name}</h4>
-                    <span class="text-xs text-brand-cyan font-medium">${ed.malayalam}</span>
-                  </div>
-                </div>
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/5 text-slate-300 border border-white/10">${ed.badge}</span>
-              </div>
-              <p class="text-xs text-slate-300 leading-relaxed mb-3">
-                ${ed.desc}. Published daily at 05:00 AM IST with main paper, regional pullout, and supplements.
-              </p>
-              <div class="bg-black/40 p-2.5 rounded-lg border border-white/5 text-[11px] text-slate-400 flex items-center justify-between">
-                <span>Official Digital Edition</span>
-                <span class="text-brand-green font-semibold">Active & Live</span>
-              </div>
-            </div>
-            <div class="pt-4 mt-3 border-t border-brand-border/40 flex items-center justify-between">
-              <span class="text-[11px] text-slate-400">epaper.mathrubhumi.com</span>
-              <a href="https://epaper.mathrubhumi.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-brand-cyan hover:bg-cyan-300 text-black font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 shadow-md shadow-brand-cyan/20">
-                <span>Read Official Paper</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        `).join('');
-
         const datesHtml = DAYS.map(d => `
           <div onclick="openDateFolder('${d.dateIso}')" class="group cursor-pointer p-4 rounded-xl bg-brand-surface border border-brand-border hover:border-brand-cyan/50 hover:bg-brand-card transition-all flex items-center justify-between shadow-sm">
             <div class="flex items-center gap-3">
@@ -884,7 +836,7 @@
                 <div class="text-[11px] text-slate-400">${d.formatted} (${d.dayOfWeek.slice(0,3)})</div>
               </div>
             </div>
-            <span class="text-[10px] text-brand-cyan/80 bg-brand-cyan/10 px-2 py-0.5 rounded border border-brand-cyan/20 font-mono">12 Editions ↗</span>
+            <span class="text-[10px] text-brand-cyan/80 bg-brand-cyan/10 px-2 py-0.5 rounded border border-brand-cyan/20 font-mono">Read Paper ↗</span>
           </div>
         `).join('');
 
@@ -907,7 +859,7 @@
                       </span>
                     </div>
                     <p class="text-xs md:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
-                      Official digital edition of Kerala's trusted newspaper, featuring all 12 regional editions, supplements, and certified back-issue archives hosted directly by <strong class="text-white">Mathrubhumi Printing & Publishing Co. Ltd.</strong>
+                      Official digital edition of Kerala's trusted newspaper, featuring daily news, supplements, and certified back-issue archives hosted directly by <strong class="text-white">Mathrubhumi Printing & Publishing Co. Ltd.</strong>
                     </p>
                   </div>
                 </div>
@@ -933,9 +885,9 @@
                 </div>
 
                 <div class="p-4 rounded-xl bg-brand-surface border border-brand-border/60">
-                  <div class="text-slate-400">Total Print Editions</div>
-                  <div class="font-bold text-white mt-1 text-sm">12 Official Editions</div>
-                  <div class="text-slate-500 text-[11px] mt-0.5">10 Kerala + National + Gulf</div>
+                  <div class="text-slate-400">Publication Format</div>
+                  <div class="font-bold text-white mt-1 text-sm">Mathrubhumi Daily Paper</div>
+                  <div class="text-slate-500 text-[11px] mt-0.5">Official Replica & Supplements</div>
                 </div>
 
                 <div class="p-4 rounded-xl bg-brand-surface border border-brand-border/60">
@@ -957,30 +909,14 @@
 
             </div>
 
-            <!-- SECTION 1: All 12 Editions -->
-            <div class="space-y-4">
+            <!-- September 2026 Daily Archives -->
+            <div class="space-y-4 pt-2">
               <div class="flex items-center justify-between">
                 <div>
                   <h4 class="text-base font-bold text-white flex items-center gap-2">
-                    <span>📰</span> Official Mathrubhumi Editions (12 Regional & National)
+                    <span>📅</span> September 2026 Daily Mathrubhumi Archives (Sep 01 - 27)
                   </h4>
-                  <p class="text-xs text-slate-400 mt-0.5">Click any edition to read the genuine, official newspaper directly from the publisher.</p>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                ${editionsHtml}
-              </div>
-            </div>
-
-            <!-- SECTION 2: September 2026 Archives -->
-            <div class="space-y-4 pt-4 border-t border-brand-border/60">
-              <div class="flex items-center justify-between">
-                <div>
-                  <h4 class="text-base font-bold text-white flex items-center gap-2">
-                    <span>📅</span> September 2026 Daily Archives (Sep 01 - 27)
-                  </h4>
-                  <p class="text-xs text-slate-400 mt-0.5">Select a date to open the official day archive with all 12 regional editions.</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Select a date to open the official day archive and read the newspaper.</p>
                 </div>
               </div>
 
@@ -996,6 +932,8 @@
 
       // 4. DATE LEVEL: Official Mathrubhumi Archive for selected date
       if (dlPath === 'date' && dlSelectedDate) {
+        const selectedDayObj = DAYS.find(d => d.dateIso === dlSelectedDate) || { formatted: dlSelectedDate, dayOfWeek: '' };
+
         pathSegs.innerHTML = `
           <span class="text-slate-600">/</span>
           <button onclick="navDl('newspapers')" class="text-slate-400 hover:text-white flex items-center gap-1">📁 newspapers</button>
@@ -1010,63 +948,61 @@
           </button>
         `;
 
-        const dateEditionsHtml = EDITIONS.map(ed => `
-          <div class="p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/40 transition-all flex flex-col justify-between group">
-            <div>
-              <div class="flex items-start justify-between gap-2 mb-3">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-sm text-rose-400">
-                    📰
-                  </div>
-                  <div>
-                    <h5 class="font-bold text-white text-xs group-hover:text-brand-cyan transition-colors">${ed.name}</h5>
-                    <div class="text-[11px] text-brand-cyan font-medium">${ed.malayalam}</div>
-                  </div>
-                </div>
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-green/15 text-brand-green border border-brand-green/30">OFFICIAL</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mb-3 leading-relaxed">
-                ${ed.badge} Edition for <strong class="text-white">${dlSelectedDate}</strong>. Verified print replica with all pages & supplements.
-              </div>
-              <div class="bg-black/40 p-2 rounded-lg border border-white/5 font-mono text-[11px] text-slate-400 flex items-center justify-between">
-                <span>epaper.mathrubhumi.com</span>
-                <span class="text-brand-cyan font-bold">Live Reader</span>
-              </div>
-            </div>
-            <div class="pt-4 mt-3 border-t border-brand-border/40 flex items-center justify-between">
-              <span class="text-[11px] text-slate-400">${dlSelectedDate}</span>
-              <a href="https://epaper.mathrubhumi.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-brand-cyan hover:bg-cyan-300 text-black font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 shadow-md shadow-brand-cyan/20">
-                <span>Read Official Paper</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        `).join('');
-
         content.innerHTML = `
           <div class="space-y-6">
             
             <div class="glass-card rounded-2xl border border-brand-border p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div class="flex items-center gap-2">
-                  <h3 class="text-lg font-bold text-white">Mathrubhumi Daily Archive: <span class="text-brand-cyan font-mono">${dlSelectedDate}</span></h3>
-                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-green/20 text-brand-green border border-brand-green/30">12 OFFICIAL EDITIONS</span>
+                  <h3 class="text-lg font-bold text-white">Mathrubhumi Daily Paper: <span class="text-brand-cyan font-mono">${dlSelectedDate}</span></h3>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-green/20 text-brand-green border border-brand-green/30">OFFICIAL ARCHIVE</span>
                 </div>
-                <p class="text-xs text-slate-300 mt-1">Official authenticated digital archives published by Mathrubhumi Printing & Publishing Company Ltd.</p>
+                <p class="text-xs text-slate-300 mt-1">Official authenticated digital newspaper issue published by Mathrubhumi Printing & Publishing Company Ltd.</p>
               </div>
 
               <div class="flex items-center gap-3">
                 <a href="https://epaper.mathrubhumi.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-brand-cyan hover:bg-cyan-300 text-black font-extrabold text-xs shadow-md shadow-brand-cyan/25 transition-all active:scale-95 flex items-center gap-2">
-                  <span>Open Date in Official Reader</span>
+                  <span>Open in Official Reader</span>
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
               </div>
             </div>
 
-            <div class="text-xs text-slate-400 font-medium">All 12 Official Regional Editions for <span class="text-white">${dlSelectedDate}</span>:</div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              ${dateEditionsHtml}
+            <!-- Single Official Paper Presentation Card -->
+            <div class="p-6 md:p-8 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div class="flex items-start gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-500/20 to-amber-500/20 border border-rose-500/30 flex items-center justify-center text-2xl text-rose-400 flex-shrink-0">
+                  📰
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h4 class="font-bold text-white text-base">Mathrubhumi Daily — ${selectedDayObj.formatted}</h4>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-green/15 text-brand-green border border-brand-green/30">AUTHENTIC</span>
+                  </div>
+                  <p class="text-xs text-brand-cyan font-medium mt-0.5">മാതൃഭൂമി ദിനപത്രം • ${selectedDayObj.dayOfWeek ? selectedDayObj.dayOfWeek + ', ' : ''}${dlSelectedDate}</p>
+                  <p class="text-xs text-slate-300 mt-2 max-w-xl leading-relaxed">
+                    Complete official digital newspaper issue for ${dlSelectedDate}, including main news, editorial, state affairs, sports, and supplements directly from Mathrubhumi.
+                  </p>
+                  <div class="flex items-center gap-4 text-[11px] text-slate-400 mt-3 flex-wrap">
+                    <span>Publisher: <strong class="text-white">Mathrubhumi</strong></span>
+                    <span>•</span>
+                    <span>Portal: <strong class="text-brand-cyan">epaper.mathrubhumi.com</strong></span>
+                    <span>•</span>
+                    <span>Format: <strong class="text-white">Full Digital ePaper</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center gap-3 flex-shrink-0">
+                <a href="https://epaper.mathrubhumi.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-brand-cyan hover:bg-cyan-300 text-black font-extrabold text-xs shadow-md shadow-brand-cyan/20 transition-all active:scale-95 flex items-center justify-center gap-2">
+                  <span>Read Official Paper</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.readwhere.whitelabel.mathrubhumi" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-brand-border font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                  <span>Android App</span>
+                  <svg class="w-3.5 h-3.5 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.996-3.4572c.1174-.2034.0478-.463-.1556-.5805-.2034-.1174-.463-.0479-.5805.1556l-2.0234 3.5043C15.632 8.3582 13.8824 8 12 8c-1.8824 0-3.632.3582-5.1179.9436L4.8587 5.4393c-.1175-.2035-.3771-.273-.5805-.1556-.2034.1175-.273.3771-.1556.5805l1.996 3.4572C2.6885 11.2372 0 14.887 0 19.1667h24c0-4.2797-2.6885-7.9295-6.1185-9.8453"/></svg>
+                </a>
+              </div>
             </div>
 
           </div>
