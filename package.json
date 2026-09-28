@@ -1,0 +1,22 @@
+{
+  "name": "ideapadtech",
+  "version": "1.0.0",
+  "description": "Official IdeaPadTech Portal - Systems Engineering, Firmware Utilities & OmniBoot OTG",
+  "homepage": "https://ideapadtech.vercel.app",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "deploy": "npx vercel --prod"
+  },
+  "keywords": [
+    "ideapadtech",
+    "omniboot",
+    "android",
+    "bootable-usb",
+    "windows",
+    "linux",
+    "vercel"
+  ],
+  "author": "IdeaPadTech Engineering",
+  "license": "MIT"
+}
