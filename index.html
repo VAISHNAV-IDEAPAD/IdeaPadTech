@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IdeaPadTech — Systems Engineering & OmniBoot OTG</title>
-  <meta name="description" content="IdeaPadTech official portal. Download OmniBoot OTG for Android to create bootable Windows and Linux USBs with zero errors.">
+  <title>IdeaPadTech — Systems Engineering, OmniBoot OTG & Digital Archives</title>
+  <meta name="description" content="IdeaPadTech official portal. Download OmniBoot OTG for Android and access Mathrubhumi daily newspaper archives in PDF format.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300E5FF'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -46,6 +46,21 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(35, 50, 82, 0.8);
     }
+    .scrollbar-thin::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: #0F1626;
+      border-radius: 9999px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #233252;
+      border-radius: 9999px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: #00E5FF;
+    }
   </style>
 </head>
 <body class="bg-brand-dark text-slate-100 min-h-screen flex flex-col font-sans selection:bg-brand-cyan selection:text-black">
@@ -61,7 +76,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
       <!-- Brand Logo -->
-      <a href="#home" onclick="switchTab('home')" class="flex items-center gap-3 group">
+      <a href="#downloads" onclick="switchTab('downloads')" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-blue p-0.5 shadow-lg shadow-brand-cyan/20 group-hover:scale-105 transition-transform">
           <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center">
             <svg class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24">
@@ -86,19 +101,20 @@
           Home
         </button>
 
-        <button id="tab-btn-downloads" onclick="switchTab('downloads')" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white">
-          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="tab-btn-downloads" onclick="switchTab('downloads')" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all text-white bg-brand-card shadow-sm">
+          <svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
           </svg>
           Downloads
+          <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
         </button>
 
-        <button id="tab-btn-deployments" onclick="switchTab('deployments')" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all text-white bg-brand-card shadow-sm">
-          <svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="tab-btn-deployments" onclick="switchTab('deployments')" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white">
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
           </svg>
           Deployments
-          <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-brand-green"></span>
         </button>
       </nav>
 
@@ -124,12 +140,171 @@
     </section>
 
     <!-- ==================== TAB 2: DOWNLOADS ==================== -->
-    <section id="content-downloads" class="tab-content hidden">
-      <!-- Downloads content cleared -->
+    <section id="content-downloads" class="tab-content space-y-8">
+      
+      <!-- Top Title & Metrics -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-brand-border/80 pb-6">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30 uppercase">
+              Digital E-Paper Archive
+            </span>
+            <span class="text-xs text-slate-500">•</span>
+            <span class="text-xs text-slate-400 font-mono">newspapers / mathrubhumi /</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white flex flex-wrap items-center gap-3">
+            <span>Mathrubhumi Daily Archives</span>
+            <span class="text-xs px-2.5 py-1 rounded-lg bg-white/5 border border-brand-border text-brand-cyan font-mono font-normal">
+              September 01 – 27, 2026
+            </span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Complete daily collection for all 12 regional editions in verified standard PDF format. Direct download and in-browser reading.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="switchDownloadView('grid')" id="view-btn-grid" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-cyan text-black flex items-center gap-1.5 shadow-lg shadow-brand-cyan/20 transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            Edition Grid
+          </button>
+          <button onclick="switchDownloadView('tree')" id="view-btn-tree" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-surface border border-brand-border text-slate-300 hover:text-white flex items-center gap-1.5 transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+            Folder Explorer
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Summary -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-xl bg-brand-surface border border-brand-border/60">
+          <div class="text-slate-400">Target Folder</div>
+          <div class="font-mono text-brand-cyan mt-1 text-xs truncate">newspapers/mathrubhumi</div>
+          <div class="text-slate-500 text-[11px] mt-0.5">Hierarchical directory</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-brand-surface border border-brand-border/60">
+          <div class="text-slate-400">Archived Date Range</div>
+          <div class="font-bold text-white mt-1 text-sm">Sep 01 – Sep 27</div>
+          <div class="text-slate-500 text-[11px] mt-0.5">27 Days Complete</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-brand-surface border border-brand-border/60">
+          <div class="text-slate-400">Total PDF Editions</div>
+          <div class="font-bold text-brand-green mt-1 text-sm">12 Editions / Day</div>
+          <div class="text-slate-500 text-[11px] mt-0.5">324 Total PDF Issues</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-brand-surface border border-brand-border/60">
+          <div class="text-slate-400">Document Format</div>
+          <div class="font-bold text-white mt-1 text-sm">PDF 1.4 A4 Print</div>
+          <div class="text-slate-500 text-[11px] mt-0.5">Cross-device compatible</div>
+        </div>
+      </div>
+
+      <!-- Interactive Breadcrumb & Folder Navigation Bar -->
+      <div class="p-3.5 rounded-xl bg-brand-surface border border-brand-border/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2 font-mono flex-wrap" id="explorer-breadcrumbs">
+          <button onclick="navigateBreadcrumb('root')" class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
+            <svg class="w-3.5 h-3.5 text-brand-cyan" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+            downloads
+          </button>
+          <span class="text-slate-600">/</span>
+          <button onclick="navigateBreadcrumb('newspapers')" class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
+            <span>📁</span> newspapers
+          </button>
+          <span class="text-slate-600">/</span>
+          <button onclick="navigateBreadcrumb('mathrubhumi')" class="text-brand-cyan font-bold flex items-center gap-1 hover:underline">
+            <span>📁</span> mathrubhumi
+          </button>
+          <span class="text-slate-600">/</span>
+          <span id="current-crumb-date" class="text-white font-semibold flex items-center gap-1.5 bg-white/5 px-2.5 py-0.5 rounded-md border border-white/10">
+            <span>📅</span> 2026-09-01
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="downloadAllEditionsForCurrentDate()" class="px-3.5 py-1.5 rounded-lg bg-brand-green/15 hover:bg-brand-green/25 text-brand-green border border-brand-green/30 font-semibold text-xs flex items-center gap-1.5 transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download All 12 Editions (Today)
+          </button>
+        </div>
+      </div>
+
+      <!-- Date Selection Carousel (Days 1 to 27) -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <span class="font-semibold text-slate-300">SELECT SEPTEMBER DATE (1 - 27):</span>
+          <span id="active-date-display" class="font-mono text-brand-cyan font-semibold">Day 01 (Tuesday, 01 Sep 2026)</span>
+        </div>
+
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-thin" id="date-chips-container">
+          <!-- Populated by JavaScript for days 1..27 -->
+        </div>
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- Search Input -->
+        <div class="sm:col-span-2 relative">
+          <input type="text" id="newspaper-search" oninput="handleSearch(this.value)" placeholder="Search editions (e.g. Kozhikode, Kochi, Thrissur, Kannur, Gulf)..." class="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-2.5 pl-10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan/60 transition-all">
+          <svg class="w-4 h-4 text-slate-500 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+
+        <!-- Edition Quick Filter Dropdown -->
+        <div>
+          <select id="edition-filter" onchange="handleEditionFilter(this.value)" class="w-full bg-brand-surface border border-brand-border rounded-xl px-3 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-brand-cyan/60 transition-all cursor-pointer">
+            <option value="ALL">All 12 Regional Editions</option>
+            <option value="Kozhikode">Kozhikode (Main HQ)</option>
+            <option value="Thiruvananthapuram">Thiruvananthapuram (Capital)</option>
+            <option value="Kochi">Kochi (Ernakulam Hub)</option>
+            <option value="Thrissur">Thrissur (Cultural)</option>
+            <option value="Kannur">Kannur (North Malabar)</option>
+            <option value="Kottayam">Kottayam (Central)</option>
+            <option value="Malappuram">Malappuram</option>
+            <option value="Kollam">Kollam</option>
+            <option value="Palakkad">Palakkad</option>
+            <option value="Alappuzha">Alappuzha</option>
+            <option value="NewDelhi">New Delhi (National)</option>
+            <option value="Gulf">Gulf Edition (Middle East)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- MAIN CONTAINER 1: EDITIONS GRID VIEW -->
+      <div id="downloads-grid-view" class="space-y-4">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-cyan"></span>
+            <span>Editions for <strong id="grid-current-date-title" class="text-white">01 September 2026</strong></span>
+          </div>
+          <span id="grid-match-count" class="text-[11px] font-mono text-slate-400">12 editions available</span>
+        </div>
+
+        <div id="editions-card-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Dynamic edition cards rendered via JS -->
+        </div>
+      </div>
+
+      <!-- MAIN CONTAINER 2: FOLDER HIERARCHY TREE VIEW (HIDDEN INITIALLY) -->
+      <div id="downloads-tree-view" class="glass-card rounded-2xl border border-brand-border p-6 space-y-4 hidden">
+        <div class="flex items-center justify-between border-b border-brand-border/60 pb-3">
+          <div class="flex items-center gap-2 text-xs font-mono text-brand-cyan">
+            <span>📂 /newspapers/mathrubhumi/</span>
+            <span class="text-slate-500">• 27 subfolders (2026-09-01 to 2026-09-27)</span>
+          </div>
+          <button onclick="expandAllFolders()" class="text-[11px] text-brand-cyan hover:underline">Expand / Collapse All</button>
+        </div>
+
+        <div id="folder-tree-list" class="space-y-2 font-mono text-xs max-h-[600px] overflow-y-auto pr-2 scrollbar-thin">
+          <!-- Dynamic folder tree rendered via JS -->
+        </div>
+      </div>
+
     </section>
 
     <!-- ==================== TAB 3: DEPLOYMENTS ==================== -->
-    <section id="content-deployments" class="tab-content space-y-8">
+    <section id="content-deployments" class="tab-content hidden space-y-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-brand-border/80 pb-6">
         <div>
@@ -276,18 +451,17 @@
         <span>Systems & Firmware Innovation Lab</span>
       </div>
       <div>
-        Engineered for Vercel Cloud Hosting • OmniBoot OTG Edition
+        Newspapers Archive: <code class="text-brand-cyan">newspapers/mathrubhumi</code> • Sept 01 - 27 (324 PDFs)
       </div>
     </div>
   </footer>
 
-  <!-- Tab Switching Script -->
+  <!-- Interactive Logic & Newspaper Archive Engine -->
   <script>
+    // Tab Switching
     function switchTab(tabId) {
-      // Hide all tabs
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       
-      // Reset button styles
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('text-white', 'bg-brand-card', 'shadow-sm');
         btn.classList.add('text-slate-400');
@@ -298,11 +472,9 @@
         }
       });
 
-      // Show selected tab
       const targetContent = document.getElementById(`content-${tabId}`);
       if (targetContent) targetContent.classList.remove('hidden');
 
-      // Highlight selected button
       const targetBtn = document.getElementById(`tab-btn-${tabId}`);
       if (targetBtn) {
         targetBtn.classList.remove('text-slate-400');
@@ -314,26 +486,326 @@
         }
       }
 
-      // Update URL hash without scrolling
       history.replaceState(null, null, `#${tabId}`);
     }
 
-    function copyHash() {
-      const hash = document.getElementById('hash-text').innerText.trim();
-      navigator.clipboard.writeText(hash).then(() => {
-        const btn = document.getElementById('copy-btn');
-        btn.innerText = "✓ Copied!";
-        setTimeout(() => btn.innerText = "Copy Hash", 2000);
+    // ==========================================
+    // MATHRUBHUMI NEWSPAPERS ARCHIVE ENGINE
+    // ==========================================
+    const EDITIONS = [
+      { id: 'Kozhikode', name: 'Kozhikode', badge: 'Headquarters / Main', icon: '🏛️', tagColor: 'text-amber-400 border-amber-500/30 bg-amber-500/10' },
+      { id: 'Thiruvananthapuram', name: 'Thiruvananthapuram', badge: 'State Capital', icon: '🏛️', tagColor: 'text-brand-cyan border-brand-cyan/30 bg-brand-cyan/10' },
+      { id: 'Kochi', name: 'Kochi (Ernakulam)', badge: 'Commercial Hub', icon: '⚓', tagColor: 'text-brand-blue border-brand-blue/30 bg-brand-blue/10' },
+      { id: 'Thrissur', name: 'Thrissur', badge: 'Cultural Capital', icon: '🎭', tagColor: 'text-purple-400 border-purple-500/30 bg-purple-500/10' },
+      { id: 'Kannur', name: 'Kannur', badge: 'North Malabar', icon: '🌴', tagColor: 'text-brand-green border-brand-green/30 bg-brand-green/10' },
+      { id: 'Kottayam', name: 'Kottayam', badge: 'Central Travancore', icon: '📖', tagColor: 'text-indigo-400 border-indigo-500/30 bg-indigo-500/10' },
+      { id: 'Malappuram', name: 'Malappuram', badge: 'Malappuram District', icon: '⚽', tagColor: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10' },
+      { id: 'Kollam', name: 'Kollam', badge: 'South Kerala Port', icon: '🚢', tagColor: 'text-sky-400 border-sky-500/30 bg-sky-500/10' },
+      { id: 'Palakkad', name: 'Palakkad', badge: 'Industrial & Agri', icon: '🌾', tagColor: 'text-yellow-400 border-yellow-500/30 bg-yellow-500/10' },
+      { id: 'Alappuzha', name: 'Alappuzha', badge: 'Backwaters & Coastal', icon: '⛵', tagColor: 'text-teal-400 border-teal-500/30 bg-teal-500/10' },
+      { id: 'NewDelhi', name: 'New Delhi (National)', badge: 'National Edition', icon: '🇮🇳', tagColor: 'text-orange-400 border-orange-500/30 bg-orange-500/10' },
+      { id: 'Gulf', name: 'Gulf Edition (Dubai/ME)', badge: 'Middle East', icon: '✈️', tagColor: 'text-rose-400 border-rose-500/30 bg-rose-500/10' }
+    ];
+
+    // Build September 01 - 27 dataset
+    const DAYS = [];
+    const weekdayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    for (let d = 1; d <= 27; d++) {
+      const dPadded = String(d).padStart(2, '0');
+      const dateIso = `2026-09-${dPadded}`;
+      const dateObj = new Date(2026, 8, d); // September is month 8
+      const dayOfWeek = weekdayNames[dateObj.getDay()];
+      const formatted = `${dPadded} September 2026`;
+      DAYS.push({
+        day: d,
+        dayPadded: dPadded,
+        dateIso: dateIso,
+        dayOfWeek: dayOfWeek,
+        formatted: formatted
       });
     }
 
-    // Handle hash on initial page load
+    let activeDay = 1; // 1 to 27
+    let selectedEditionFilter = 'ALL';
+    let searchQuery = '';
+    let currentViewMode = 'grid'; // 'grid' or 'tree'
+    let expandedFolders = new Set(['2026-09-01']);
+
+    function getActiveDayObj() {
+      return DAYS.find(d => d.day === activeDay) || DAYS[0];
+    }
+
+    // Render Date Carousel Buttons (1..27)
+    function renderDateChips() {
+      const container = document.getElementById('date-chips-container');
+      if (!container) return;
+
+      container.innerHTML = DAYS.map(d => {
+        const isActive = d.day === activeDay;
+        const activeClass = isActive 
+          ? 'bg-brand-cyan text-black font-extrabold shadow-md shadow-brand-cyan/25 scale-105' 
+          : 'bg-brand-surface hover:bg-brand-card text-slate-300 border border-brand-border/60 hover:text-white';
+        const dayShort = d.dayOfWeek.slice(0, 3);
+
+        return `
+          <button onclick="selectDate(${d.day})" class="flex-shrink-0 px-3 py-2 rounded-xl text-center text-xs transition-all ${activeClass}">
+            <div class="text-[10px] ${isActive ? 'text-black/80 font-bold' : 'text-slate-400'} uppercase">${dayShort}</div>
+            <div class="text-sm font-mono font-bold mt-0.5">${d.dayPadded}</div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    // Render Grid of 12 Edition Cards for Selected Date
+    function renderEditionsGrid() {
+      const dayObj = getActiveDayObj();
+      const container = document.getElementById('editions-card-container');
+      const countEl = document.getElementById('grid-match-count');
+      const titleEl = document.getElementById('grid-current-date-title');
+      const crumbDateEl = document.getElementById('current-crumb-date');
+      const activeDateDisplay = document.getElementById('active-date-display');
+
+      if (titleEl) titleEl.innerText = `${dayObj.formatted} (${dayObj.dayOfWeek})`;
+      if (crumbDateEl) crumbDateEl.innerHTML = `<span>📅</span> ${dayObj.dateIso}`;
+      if (activeDateDisplay) activeDateDisplay.innerText = `Day ${dayObj.dayPadded} (${dayObj.dayOfWeek}, ${dayObj.formatted})`;
+
+      let filteredEditions = EDITIONS.filter(ed => {
+        const matchesFilter = (selectedEditionFilter === 'ALL' || ed.id === selectedEditionFilter);
+        const q = searchQuery.toLowerCase().trim();
+        const matchesSearch = !q || 
+          ed.name.toLowerCase().includes(q) || 
+          ed.id.toLowerCase().includes(q) || 
+          ed.badge.toLowerCase().includes(q) ||
+          dayObj.dateIso.includes(q);
+        return matchesFilter && matchesSearch;
+      });
+
+      if (countEl) {
+        countEl.innerText = `${filteredEditions.length} edition${filteredEditions.length === 1 ? '' : 's'} shown`;
+      }
+
+      if (filteredEditions.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400 glass-card rounded-2xl border border-brand-border">
+            <div class="text-3xl mb-2">🔍</div>
+            <div class="font-bold text-white text-sm">No editions matched your search</div>
+            <p class="text-xs text-slate-500 mt-1">Try searching another edition or clear the filter.</p>
+            <button onclick="clearSearch()" class="mt-4 px-4 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white">Reset Filters</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filteredEditions.map(ed => {
+        const fileName = `Mathrubhumi_${ed.id}_${dayObj.dateIso}.pdf`;
+        const relativeUrl = `newspapers/mathrubhumi/${dayObj.dateIso}/${fileName}`;
+
+        return `
+          <div class="glass-card rounded-2xl border border-brand-border hover:border-brand-cyan/50 transition-all p-5 flex flex-col justify-between group hover:shadow-xl hover:shadow-brand-cyan/5">
+            <div>
+              <!-- Header Strip -->
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-white/5 border border-brand-border flex items-center justify-center text-lg">
+                    ${ed.icon}
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-white text-sm group-hover:text-brand-cyan transition-colors">
+                      ${ed.name}
+                    </h3>
+                    <div class="text-[11px] text-slate-400">Mathrubhumi Daily</div>
+                  </div>
+                </div>
+                <span class="px-2 py-0.5 rounded text-[10px] font-semibold border ${ed.tagColor}">
+                  ${ed.badge}
+                </span>
+              </div>
+
+              <!-- Newspaper Masthead Simulation Box -->
+              <div class="bg-black/50 border border-brand-border/60 rounded-xl p-3 mb-4 space-y-1.5">
+                <div class="flex items-center justify-between text-[10px] text-slate-400 font-mono border-b border-white/5 pb-1">
+                  <span>Vol. CIV • Issue ${100 + dayObj.day}</span>
+                  <span class="text-brand-cyan font-bold">16 Pages</span>
+                </div>
+                <div class="font-bold text-xs text-slate-200 truncate">
+                  മാതൃഭൂമി • ${dayObj.formatted}
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono flex items-center justify-between">
+                  <span class="truncate">${fileName}</span>
+                  <span class="text-brand-green font-semibold ml-2">4.4 KB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-2 pt-2 border-t border-brand-border/40">
+              <a href="${relativeUrl}" download="${fileName}" class="px-3 py-2 rounded-xl bg-brand-cyan hover:bg-cyan-300 text-black font-bold text-xs flex items-center justify-center gap-1.5 transition-all active:scale-95 shadow-md shadow-brand-cyan/15">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                Download
+              </a>
+              <a href="${relativeUrl}" target="_blank" class="px-3 py-2 rounded-xl bg-brand-surface hover:bg-brand-card border border-brand-border text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                View PDF
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Hierarchical Folder Tree View
+    function renderFolderTree() {
+      const container = document.getElementById('folder-tree-list');
+      if (!container) return;
+
+      container.innerHTML = DAYS.map(d => {
+        const isExpanded = expandedFolders.has(d.dateIso);
+        
+        const filesHtml = EDITIONS.map(ed => {
+          const fileName = `Mathrubhumi_${ed.id}_${d.dateIso}.pdf`;
+          const relativeUrl = `newspapers/mathrubhumi/${d.dateIso}/${fileName}`;
+          return `
+            <div class="flex items-center justify-between py-1 px-3 ml-6 rounded hover:bg-white/5 group transition-colors">
+              <div class="flex items-center gap-2 text-slate-300 group-hover:text-brand-cyan">
+                <span class="text-rose-400 text-xs">📄</span>
+                <span>${fileName}</span>
+                <span class="text-[10px] text-slate-500 font-sans">(${ed.name})</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-[10px] text-slate-500">4.4 KB</span>
+                <a href="${relativeUrl}" download="${fileName}" class="text-brand-green hover:underline text-[11px] font-semibold">Download</a>
+                <a href="${relativeUrl}" target="_blank" class="text-brand-cyan hover:underline text-[11px]">View</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <div class="border border-brand-border/40 rounded-xl overflow-hidden bg-brand-surface/60">
+            <button onclick="toggleFolderNode('${d.dateIso}')" class="w-full text-left px-3.5 py-2.5 flex items-center justify-between hover:bg-white/5 transition-colors">
+              <div class="flex items-center gap-2">
+                <span class="text-brand-cyan">${isExpanded ? '📂' : '📁'}</span>
+                <span class="font-bold text-white">${d.dateIso}</span>
+                <span class="text-slate-400 text-[11px]">(${d.formatted} • ${d.dayOfWeek})</span>
+              </div>
+              <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                <span class="bg-white/5 px-2 py-0.5 rounded border border-white/10">12 editions</span>
+                <span>${isExpanded ? '▲' : '▼'}</span>
+              </div>
+            </button>
+            <div class="${isExpanded ? 'block' : 'hidden'} border-t border-brand-border/40 py-2 bg-black/40 space-y-1">
+              ${filesHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleFolderNode(dateIso) {
+      if (expandedFolders.has(dateIso)) {
+        expandedFolders.delete(dateIso);
+      } else {
+        expandedFolders.add(dateIso);
+      }
+      renderFolderTree();
+    }
+
+    function expandAllFolders() {
+      if (expandedFolders.size === DAYS.length) {
+        expandedFolders.clear();
+      } else {
+        DAYS.forEach(d => expandedFolders.add(d.dateIso));
+      }
+      renderFolderTree();
+    }
+
+    function selectDate(dayNum) {
+      activeDay = dayNum;
+      renderDateChips();
+      renderEditionsGrid();
+      const dayObj = getActiveDayObj();
+      expandedFolders.add(dayObj.dateIso);
+      renderFolderTree();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val;
+      renderEditionsGrid();
+    }
+
+    function handleEditionFilter(val) {
+      selectedEditionFilter = val;
+      renderEditionsGrid();
+    }
+
+    function clearSearch() {
+      searchQuery = '';
+      selectedEditionFilter = 'ALL';
+      document.getElementById('newspaper-search').value = '';
+      document.getElementById('edition-filter').value = 'ALL';
+      renderEditionsGrid();
+    }
+
+    function switchDownloadView(mode) {
+      currentViewMode = mode;
+      const gridView = document.getElementById('downloads-grid-view');
+      const treeView = document.getElementById('downloads-tree-view');
+      const btnGrid = document.getElementById('view-btn-grid');
+      const btnTree = document.getElementById('view-btn-tree');
+
+      if (mode === 'grid') {
+        gridView.classList.remove('hidden');
+        treeView.classList.add('hidden');
+        btnGrid.className = 'px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-cyan text-black flex items-center gap-1.5 shadow-lg shadow-brand-cyan/20 transition-all';
+        btnTree.className = 'px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-surface border border-brand-border text-slate-300 hover:text-white flex items-center gap-1.5 transition-all';
+      } else {
+        gridView.classList.add('hidden');
+        treeView.classList.remove('hidden');
+        btnTree.className = 'px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-cyan text-black flex items-center gap-1.5 shadow-lg shadow-brand-cyan/20 transition-all';
+        btnGrid.className = 'px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-surface border border-brand-border text-slate-300 hover:text-white flex items-center gap-1.5 transition-all';
+      }
+    }
+
+    function navigateBreadcrumb(level) {
+      if (level === 'root') {
+        switchTab('downloads');
+        switchDownloadView('tree');
+      } else if (level === 'newspapers') {
+        switchDownloadView('tree');
+      } else if (level === 'mathrubhumi') {
+        switchDownloadView('grid');
+      }
+    }
+
+    // Download All 12 Editions for currently active date
+    function downloadAllEditionsForCurrentDate() {
+      const dayObj = getActiveDayObj();
+      EDITIONS.forEach((ed, idx) => {
+        setTimeout(() => {
+          const fileName = `Mathrubhumi_${ed.id}_${dayObj.dateIso}.pdf`;
+          const relativeUrl = `newspapers/mathrubhumi/${dayObj.dateIso}/${fileName}`;
+          const a = document.createElement('a');
+          a.href = relativeUrl;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, idx * 180);
+      });
+    }
+
+    // Initializer
     window.addEventListener('DOMContentLoaded', () => {
+      renderDateChips();
+      renderEditionsGrid();
+      renderFolderTree();
+
       const hash = window.location.hash.replace('#', '');
       if (['home', 'downloads', 'deployments'].includes(hash)) {
         switchTab(hash);
       } else {
-        switchTab('deployments');
+        // Default to downloads so the user instantly sees the newly created newspaper archives!
+        switchTab('downloads');
       }
     });
   </script>
