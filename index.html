@@ -161,7 +161,35 @@
 
       <!-- Main Explorer Container -->
       <div id="dl-explorer-content" class="min-h-[320px]">
-        <!-- Dynamic content rendered by JavaScript -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-2">
+          <!-- Folder 1: newspapers -->
+          <div onclick="navDl('newspapers')" class="group cursor-pointer p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/60 hover:bg-brand-card transition-all flex items-center justify-between shadow-sm hover:shadow-lg hover:shadow-brand-cyan/10">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                📁
+              </div>
+              <div>
+                <div class="font-bold text-white text-base group-hover:text-brand-cyan transition-colors">newspapers</div>
+                <div class="text-xs text-slate-400 mt-0.5">Folder • Mathrubhumi Archives</div>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-slate-500 group-hover:text-brand-cyan group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+
+          <!-- Folder 2: software collection -->
+          <div onclick="navDl('software_collection')" class="group cursor-pointer p-5 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-cyan/60 hover:bg-brand-card transition-all flex items-center justify-between shadow-sm hover:shadow-lg hover:shadow-brand-cyan/10">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform text-purple-400">
+                📁
+              </div>
+              <div>
+                <div class="font-bold text-white text-base group-hover:text-brand-cyan transition-colors">software collection</div>
+                <div class="text-xs text-slate-400 mt-0.5">Folder • Utilities & Tools</div>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-slate-500 group-hover:text-brand-cyan group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
       </div>
 
     </section>
@@ -765,6 +793,8 @@
           </div>
         `;
         return;
+      }
+
       // 2. NEWSPAPERS LEVEL: Show subfolder "mathrubhumi"
       if (dlPath === 'newspapers') {
         pathSegs.innerHTML = `
